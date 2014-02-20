@@ -29,21 +29,33 @@ void loop()
     
     if(total1 >= threshHold)
     {
+      /*
         Serial.print(0);
         Serial.print("\t");Serial.print(total1);
         Serial.print("\n");
+      */
+      
+        Serial.write(0);
     }
     if(total2 >= threshHold)
     {
+      /*
         Serial.print(1);
         Serial.print("\t");Serial.print(total2);
         Serial.print("\n");
+      */
+      
+      Serial.write(1);
     }
     
     else
     {
+      /*
         Serial.print(-1);
         Serial.print("\n");
+        */
+        
+        Serial.write(-1);
     }
     
     delay(750);
