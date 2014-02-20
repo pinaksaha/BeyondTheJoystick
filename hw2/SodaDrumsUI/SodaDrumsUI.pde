@@ -31,14 +31,15 @@ void setup()
   textFont(HelveticaNeueBold,48);
   text("Soda Drums",500,100);
   
-  textFont(HelveticaNeueLight,32);
-  text("Score:",1000,200);
-  text(score,1100,200);
   //   x1,y1,x2,y2
   rect(400, 200, 500, 500, 7);
   
 }
-
+void delay(int delay)
+{
+  int time = millis();
+  while(millis() - time <= delay);
+}
 
 void draw()
 {
@@ -55,7 +56,22 @@ void draw()
   if(myConnection.available()>0)
   {
      val = myConnection.read();
-     println( val);
+     println( val + " => " + number);
+     
+     if(val == number)
+     {
+       fill(#f1c40f);
+       rect(955, 100, 200, 200);
+       score = score + 1;
+       fill(#ffffff);
+       textFont(HelveticaNeueLight,32);
+       text("Score:",1000,200);
+       text(score,1100,200);
+     }
+     
+     
+     delay(750);
+     
   }
 }
 
